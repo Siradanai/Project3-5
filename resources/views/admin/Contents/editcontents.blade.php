@@ -1,5 +1,4 @@
-@include('layouts/admin/head')>
-
+@include('layouts/admin/head')
 <body id="page-top">
   <div id="wrapper">
   @include('layouts/admin/sidebar')
@@ -25,32 +24,21 @@
                   <h6 class="m-0 font-weight-bold text-primary">Editcontents</h6>
                 </div>
                 <div class="card-body">
-                <form action="" method="POST">
-                    {{csrf_field()}}
+                  <form action="{{url('/Contents/update/'.$edit->id_contents)}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
-                      <label for="exampleInputEmail1">รหัสเนื้อหา</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ID">
+                      <label for="text">เนื้อหา</label>
+                      <input type="text" class="form-control" id="text" name="text" value="{{$edit->text}}" >
                     </div>
-                   
                     <div class="form-group">
-                      <label for="exampleInputEmail1">เนื้อหา</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text">
-                    </div>
-
-                    <div class="form-group">
-                    <label for="exampleInputEmail1">รูปภาพ</label>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    <label for="image">รูปภาพ</label>
+                      <div class="input-group">
+                        <input type="file" name="image" class="form-control" id="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                       </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">รหัสผู้ใช้</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ID">
+                      <img id="showImage" src="{{asset('admin/img/'.$edit->image)}}" width="150px">
                     </div>
                    
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                   </form>
                 </div>
               </div>

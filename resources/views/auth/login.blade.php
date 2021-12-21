@@ -31,9 +31,7 @@
 			<div class="wrap-login100 p-t-85 p-b-20">
 				<form class="login100-form validate-form" action="{{route('login')}}" method="POST">
                     @csrf
-					<span class="login100-form-title p-b-70">
-                    Login
-					</span>
+					
 					<span class="login100-form-avatar">
 						<img src="{{asset('back_end/images/1.jpg')}}" alt="AVATAR">
 					</span>
@@ -54,7 +52,7 @@
 						</button>
 					</div>
 
-					<ul class="login-more p-t-190">
+					<!--<ul class="login-more p-t-190">
 						<li class="m-b-8">
 							<span class="txt1">
 								Forgot
@@ -67,14 +65,14 @@
 
 						<li>
 							<span class="txt1">
-								Don’t have an account?
+								Don't have an account?
 							</span>
 
 							<a href="#" class="txt2">
 								Sign up
 							</a>
 						</li>
-					</ul>
+					</ul>-->
 				</form>
 			</div>
 		</div>

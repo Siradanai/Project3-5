@@ -3,15 +3,14 @@
 <body id="page-top">
   <div id="wrapper">
   @include('layouts/admin/sidebar')
-    <div id="content-wrapper" class="d-flex flex-column">
+  <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
       @include('layouts/admin/headber')
-
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">แก้ไขสินค้า</h1>
+            <h1 class="h3 mb-0 text-gray-800">แก้ไขประเภทสินค้า</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./">Home</a></li>
               <li class="breadcrumb-item">Tables</li>
@@ -26,20 +25,22 @@
                   <h6 class="m-0 font-weight-bold text-primary">Edittype</h6>
                 </div>
                 <div class="card-body">
-                  <form action="" method="POST">
-                    {{csrf_field()}}
-                  <div class="form-group">
+                  <form action="{{url('/Types/update/'.$edit->id_types)}}" method="POST">
+                    @csrf
+                <!--  <div class="form-group">
                       <label for="exampleInputEmail1">รหัสประเภท</label>
                       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ID">
                      
-                    </div>
+                    </div>-->
                     <div class="form-group">
                       <label for="exampleInputEmail1">ชื่อประเภท</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
-                     
+                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$edit->name}}"  name="name">
+                     @error('name')
+                      <span class="texr-danger">{{$message}}</span>
+                      @enderror
                     </div>
                    
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                   </form>
                 </div>
               </div>

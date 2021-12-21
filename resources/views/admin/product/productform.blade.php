@@ -1,6 +1,7 @@
 @include('layouts/admin/head')
-
-
+  <!--sweetalert2-->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!--/sweetalert2-->
 <body id="page-top">
   <div id="wrapper">
 
@@ -35,65 +36,29 @@
                       <tr>
                         <th>ID</th>
                         <th>ชื่อเมนู</th>
-                        <th>เนื้อหา</th>
                         <th>รูปภาพ</th>
                         <th>ราคา</th>
-                        <th>รายละเอียด</th>
+                        <th>ประเภท</th>
+                        <th>ผู้ใช้</th>
                         <th>แก้ไข</th>
                         <th>ลบ</th>
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach ($product as $products)
                       <tr>
-                        <td><a href="#">RA0449</a></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><a href="{{route('editproduct')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
+                        <th scope="row">{{$products->id_product}}</th>
+                        <td>{{$products->name}}</td>
+                        <td>
+                          <img src="{{asset('/admin/img/'.$products->image)}}" width="100px" alt="">
+                        </td>
+                        <td>{{$products->price}}</td>
+                        <td>{{$products->types->name}}</td>
+                        <td>{{$products->id_users}}</td>
+                        <td><a href="{{url('/Product/edit/'.$products->id_product)}}" class="btn btn-sm btn-warning">Edit</a></td>
+                        <td><a href="{{url('/Product/delete/'.$products->id_product)}}" class="btn btn-sm btn-danger">Delete</a></td>
                       </tr>
-                      <tr>
-                        <td><a href="#">RA5324</a></td>
-                        <td><span class="">Shipping</span></td>
-                        <td><span class="">Shipping</span></td>
-                        <td><span class="badge badge-warning">Shipping</span></td>
-                        <td><span class="">Shipping</span></td>
-                        <td><span class="">Shipping</span></td>
-                        <td><a href="{{route('editproduct')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA8568</a></td>
-                        <td><span class="">Pending</span></td>
-                        <td><span class="">Pending</span></td>
-                        <td><span class="badge badge-danger">Pending</span></td>
-                        <td><span class="">Pending</span></td>
-                        <td><span class="">Pending</span></td>
-                        <td><a href="{{route('editproduct')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA1453</a></td>
-                        <td><span class="">Processing</span></td>
-                        <td><span class="">Processing</span></td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td><span class="">Processing</span></td>
-                        <td><span class="">Processing</span></td>
-                        <td><a href="{{route('editproduct')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA1998</a></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><a href="{{route('editproduct')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

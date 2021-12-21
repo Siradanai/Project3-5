@@ -18,8 +18,8 @@
                     <p><strong>Email :</strong> {{ Auth::user()->email }}</p>
                     <p><strong>Phone :</strong> {{ Auth::user()->phone }}</p>
                     <p><strong>Address :</strong> {{ Auth::user()->address }}</p>
-                    <a href="{{route('index')}}" class="btn btn-primary">Product Management</a>
-                    <a href="" class="btn btn-success">Home</a>
+                    <a href="{{route('productform')}}" class="btn btn-primary">Product Management</a>
+                    <a href="{{url('http://127.0.0.1:8000/')}}" class="btn btn-success">Home</a>
 
                 </div>
             </div>

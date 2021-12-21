@@ -29,4 +29,8 @@ class HomeController extends Controller
     public function about(){
         return view('font_end.about');
     }
+
+    public function welcome(){
+        return view('welcome');
+    }
 }

@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="{{asset('admin/img/logo/logo.png')}}" rel="icon">
-  <title>Admin - Dashboard</title>
+  <link href="{{asset('admin/img/logo/1.jpg')}}" rel="icon">
+  <title>Admin</title>
   <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('admin/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('admin/css/ruang-admin.min.css')}}" rel="stylesheet">

@@ -3,17 +3,43 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
-class Product extends Model
+class product extends Model
 {
-    protected $table = 'products';
-    //protected $primaryKey = 'id_product';
+    protected $table = 'product';
+    protected $primaryKey = 'id_product';
     protected $fillable = [
-        'image',
+     
         'name',
+        'image',
         'price',
         'detail',
-        'id_type',
-        'id_user'
+        'id_types',
+        'id_user',
     ];
+
+    protected static function boot()
+
+    {
+
+        parent::boot();
+
+        static::creating(function ($model) {
+
+            $model->id_users = Auth::id();
+
+        });
+
+        static::updating(function ($model) {
+
+            $model->id_users = Auth::id();
+
+        });
+    }
+
+    public function types(){
+        return $this->belongsTo(Types::class,'id_types');
+    }
+
 }

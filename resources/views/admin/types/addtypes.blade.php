@@ -25,17 +25,19 @@
                   <h6 class="m-0 font-weight-bold text-primary">Addtype</h6>
                 </div>
                 <div class="card-body">
-                  <form action="" method="POST">
-                    {{csrf_field()}}
-                  <div class="form-group">
+                  <form action="{{url('/Types/Create')}}" method="POST">
+                    @csrf
+                <!--  <div class="form-group">
                       <label for="exampleInputEmail1">รหัสประเภท</label>
                       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ID">
                      
-                    </div>
+                    </div>-->
                     <div class="form-group">
                       <label for="exampleInputEmail1">ชื่อประเภท</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
-                     
+                      <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Name" name="name">
+                     @error('name')
+                      <span class="texr-danger">{{$message}}</span>
+                      @enderror
                     </div>
                    
                     <button type="submit" class="btn btn-primary">Submit</button>

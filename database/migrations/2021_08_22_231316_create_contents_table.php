@@ -15,12 +15,13 @@ class CreateContentsTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->bigIncrements('id_contents');
+            $table->string('text');
             $table->string('image');
             $table->integer('id_users');
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

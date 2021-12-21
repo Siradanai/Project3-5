@@ -29,11 +29,9 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form" action="{{ route('register') }}" method="POST">
+				<form class="login100-form validate-form" action="{{route('register')}}" method="POST">
                     @csrf
-					<span class="login100-form-title p-b-70">
-                        Register
-					</span>
+					
 					<span class="login100-form-avatar">
 						<img src="{{asset('back_end/images/1.jpg')}}" alt="AVATAR">
 					</span>
@@ -53,22 +51,22 @@
 						<span class="focus-input100" data-placeholder="Password_confirmation"></span>
 					</div>
 
-                    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter name">
+                    <div class="wrap-input100 validate-input m-b-50" data-validate = "Enter name">
 						<input class="input100" type="text" name="name">
 						<span class="focus-input100" data-placeholder="Name"></span>
 					</div>
 
-                    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter email">
+                    <div class="wrap-input100 validate-input m-b-50" data-validate = "Enter email">
 						<input class="input100" type="email" name="email">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
-                    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter phone">
+                    <div class="wrap-input100 validate-input m-b-50" data-validate = "Enter phone">
 						<input class="input100" type="text" name="phone">
 						<span class="focus-input100" data-placeholder="Phone"></span>
 					</div>
 
-                    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter address">
+                    <div class="wrap-input100 validate-input m-b-50" data-validate = "Enter address">
 						<input class="input100" type="text" name="address">
 						<span class="focus-input100" data-placeholder="Address"></span>
 					</div>
@@ -79,7 +77,7 @@
 						</button>
 					</div>
 
-					<ul class="login-more p-t-190">
+					<!--<ul class="login-more p-t-190">
 						<li class="m-b-8">
 							<span class="txt1">
 								Forgot
@@ -92,14 +90,14 @@
 
 						<li>
 							<span class="txt1">
-								Don’t have an account?
+								Don't have an account?
 							</span>
 
 							<a href="#" class="txt2">
 								Sign up
 							</a>
 						</li>
-					</ul>
+					</ul>-->
 				</form>
 			</div>
 		</div>

@@ -1,12 +1,25 @@
 @include('layouts/admin/head')
-
+  <!--sweetalert2-->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!--/sweetalert2-->
 <body id="page-top">
   <div id="wrapper">
-@include('layouts/admin/sidebar')
+    @include('layouts/admin/sidebar')
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
+      @if (session('success'))
+          <script>
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'บันทึกข้อมูลเรียบร้อย',
+              showConfirmButton: false,
+              timer: 3500
+            })
+          </script>
+          @endif
 
-@include('layouts/admin/headber')
+        @include('layouts/admin/headber')
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
@@ -18,6 +31,8 @@
               <li class="breadcrumb-item active" aria-current="page">Types Tables</li>
             </ol>
           </div>
+
+          
 
           <div class="row">
             <div class="col-lg-12 mb-4">
@@ -31,43 +46,25 @@
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
-                      <th>ID</th>
+                        <th>ID</th>
                         <th>ชื่อประเภท</th>
+                        <th>วันที่ใส่ข้อมูล</th>
+                        <th>วันที่แก้ไข</th>
                         <th>แก้ไข</th>
                         <th>ลบ</th>
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach ($types as $typesies)
                       <tr>
-                        <td><a href="#">RA0449</a></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><a href="{{route('edittypes')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
+                        <th scope="row">{{$typesies->id_types}}</th>
+                        <td>{{$typesies->name}}</td>
+                        <td>{{$typesies->created_at}}</td>
+                        <td>{{$typesies->updated_at}}</td>
+                        <td><a href="{{url('/Types/edit/'.$typesies->id_types)}}" class="btn btn-sm btn-warning">Edit</a></td>
+                        <td><a href="{{url('/Types/delete/'.$typesies->id_types)}}" class="btn btn-sm btn-danger">Delete</a></td>
                       </tr>
-                      <tr>
-                        <td><a href="#">RA5324</a></td>
-                        <td><span class="">Shipping</span></td>
-                        <td><a href="{{route('edittypes')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA8568</a></td>
-                        <td><span class="">Pending</span></td>
-                        <td><a href="{{route('edittypes')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA1453</a></td>
-                        <td><span class="">Processing</span></td>
-                        <td><a href="{{route('edittypes')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA1998</a></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><a href="{{route('edittypes')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>
@@ -78,8 +75,7 @@
           <!--Row-->
 
           <!-- Modal Logout -->
-          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
-            aria-hidden="true">
+          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -102,8 +98,8 @@
         </div>
         <!---Container Fluid-->
       </div>
-      
-@include('layouts/admin/footer')
+
+      @include('layouts/admin/footer')
 
     </div>
   </div>

@@ -47,7 +47,7 @@ a {
 	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: #000000;
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
@@ -61,7 +61,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #333333;
+  color: #000000;
 }
 
 /*---------------------------------------------*/
@@ -73,7 +73,7 @@ p {
 	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: #000000;
 	margin: 0px;
 }
 
@@ -139,14 +139,14 @@ iframe {
 .txt1 {
   font-family: Poppins-Regular;
   font-size: 15px;
-  color: #999999;
+  color: #000000;
   line-height: 1.5;
 }
 
 .txt2 {
   font-family: Poppins-Regular;
   font-size: 15px;
-  color: #8f06ce;
+  color: #000000;
   line-height: 1.5;
 }
 
@@ -190,7 +190,7 @@ iframe {
   display: block;
   font-family: Poppins-Bold;
   font-size: 39px;
-  color: #333333;
+  color: #000000;
   line-height: 1.2;
   text-align: center;
 }
@@ -220,7 +220,7 @@ iframe {
 .input100 {
   font-family: Poppins-SemiBold;
   font-size: 18px;
-  color: #555555;
+  color: #000000;
   line-height: 1.2;
 
   display: block;
@@ -255,13 +255,13 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 
-  background: #90069c;
+  background: #000000;
 }
 
 .focus-input100::after {
   font-family: Poppins-Medium;
   font-size: 18px;
-  color: #999999;
+  color: #000000;
   line-height: 1.2;
 
   content: attr(data-placeholder);
@@ -308,12 +308,13 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
 .login100-form-btn {
   font-family: Poppins-Medium;
   font-size: 16px;
-  color: #fff;
+  color: rgb(255, 255, 255);
   line-height: 1.2;
   text-transform: uppercase;
 
@@ -327,14 +328,14 @@ iframe {
   padding: 0 20px;
   width: 100%;
   height: 50px;
-  background-color: #83079c;
+  background-color: #ff0000;
   border-radius: 25px;
 
-  box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
-  -moz-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
-  -webkit-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
-  -o-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
-  -ms-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+  box-shadow: 0 10px 30px 0px rgba(255, 0, 0, 0.5);
+  -moz-box-shadow: 0 10px 30px 0px rgba(255, 0, 0, 0.5);
+  -webkit-box-shadow: 0 10px 30px 0px rgba(255, 0, 0, 0.5);
+  -o-box-shadow: 0 10px 30px 0px rgba(255, 0, 0, 0.5);
+  -ms-box-shadow: 0 10px 30px 0px rgba(255, 0, 0, 0.5);
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -343,12 +344,12 @@ iframe {
 }
 
 .login100-form-btn:hover  {
-  background-color: #333333;
-  box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
-  -moz-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
-  -webkit-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
-  -o-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
-  -ms-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
+  background-color: #000000;
+  box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.5);
+  -ms-box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.5);
 }
 
 

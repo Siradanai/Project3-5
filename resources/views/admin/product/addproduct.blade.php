@@ -2,10 +2,10 @@
 
 <body id="page-top">
   <div id="wrapper">
-  @include('layouts/admin/sidebar')
+    @include('layouts/admin/sidebar')
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
-      @include('layouts/admin/headber')
+        @include('layouts/admin/headber')
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
@@ -25,165 +25,184 @@
                   <h6 class="m-0 font-weight-bold text-primary">Addproduct</h6>
                 </div>
                 <div class="card-body">
-                  <form action="" method="POST">
-                    {{csrf_field()}}
-                  <div class="form-group">
-                      <label for="exampleInputEmail1">รหัสสินค้า</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ID">
-                    </div>
+                  <form action="{{url('/Product/Create')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
-                      <label for="exampleInputEmail1">เนื้อหา</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text">
+                      <label for="name">ชื่อเมนู</label>
+                      <input type="text" class="form-control" id="name" placeholder="Text" name="name">
                     </div>
+                    @error('name')
+                    <span class="texr-danger">{{$message}}</span>
+                    @enderror
                     <div class="form-group">
-                    <label for="exampleInputEmail1">รูปภาพ</label>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      <label for="image">รูปภาพ</label>
+                      <div class="input-group">
+                        <input type="file" name="image" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                       </div>
+
                     </div>
+                    @error('name')
+                    <span class="texr-danger">{{$message}}</span>
+                    @enderror
                     <div class="form-group">
-                      <label for="exampleInputEmail1">ราคา</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Price">
+                      <label for="price">ราคา</label>
+                      <input type="price" class="form-control" id="price" placeholder="Price" name="price">
                     </div>
+                    @error('name')
+                    <span class="texr-danger">{{$message}}</span>
+                    @enderror
+                    <!--<div class="form-group">
+                      <label for="id_types">ประเภท</label>
+                      <input type="types" class="form-control" id="types" placeholder="types" name="types">
+                    </div>
+                    @error('name')
+                    <span class="texr-danger">{{$message}}</span>
+                    @enderror-->
+
                     <div class="form-group">
-                      <label for="exampleInputEmail1">รายละเอียด</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Detail">
+                      <label>ประเภท</label>
+                      <select class="form-control" name="types">
+
+                        @foreach ($types as $t)
+                        <option value="{{$t->id_types}}">{{$t->name}}</option>
+                        @endforeach
+
+                      </select>
                     </div>
+
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
                 </div>
               </div>
 
-           
-              
+
+
             </div>
 
-          
           </div>
-        <!---Container Fluid-->
+          <!---Container Fluid-->
+        </div>
+        @include('layouts/admin/footer')
       </div>
-      @include('layouts/admin/footer')
     </div>
-  </div>
 
-  <!-- Scroll to top -->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+    <!-- Scroll to top -->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <!-- Select2 -->
-  <script src="vendor/select2/dist/js/select2.min.js"></script>
-  <!-- Bootstrap Datepicker -->
-  <script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-  <!-- Bootstrap Touchspin -->
-  <script src="vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js"></script>
-  <!-- ClockPicker -->
-  <script src="vendor/clock-picker/clockpicker.js"></script>
-  <!-- RuangAdmin Javascript -->
-  <script src="js/ruang-admin.min.js"></script>
-  <!-- Javascript for this page -->
-  <script>
-    $(document).ready(function () {
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Select2 -->
+    <script src="vendor/select2/dist/js/select2.min.js"></script>
+    <!-- Bootstrap Datepicker -->
+    <script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <!-- Bootstrap Touchspin -->
+    <script src="vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js"></script>
+    <!-- ClockPicker -->
+    <script src="vendor/clock-picker/clockpicker.js"></script>
+    <!-- RuangAdmin Javascript -->
+    <script src="js/ruang-admin.min.js"></script>
+    <!-- Javascript for this page -->
+    <script>
+      $(document).ready(function() {
 
 
-      $('.select2-single').select2();
+        $('.select2-single').select2();
 
-      // Select2 Single  with Placeholder
-      $('.select2-single-placeholder').select2({
-        placeholder: "Select a Province",
-        allowClear: true
-      });      
+        // Select2 Single  with Placeholder
+        $('.select2-single-placeholder').select2({
+          placeholder: "Select a Province",
+          allowClear: true
+        });
 
-      // Select2 Multiple
-      $('.select2-multiple').select2();
+        // Select2 Multiple
+        $('.select2-multiple').select2();
 
-      // Bootstrap Date Picker
-      $('#simple-date1 .input-group.date').datepicker({
-        format: 'dd/mm/yyyy',
-        todayBtn: 'linked',
-        todayHighlight: true,
-        autoclose: true,        
+        // Bootstrap Date Picker
+        $('#simple-date1 .input-group.date').datepicker({
+          format: 'dd/mm/yyyy',
+          todayBtn: 'linked',
+          todayHighlight: true,
+          autoclose: true,
+        });
+
+        $('#simple-date2 .input-group.date').datepicker({
+          startView: 1,
+          format: 'dd/mm/yyyy',
+          autoclose: true,
+          todayHighlight: true,
+          todayBtn: 'linked',
+        });
+
+        $('#simple-date3 .input-group.date').datepicker({
+          startView: 2,
+          format: 'dd/mm/yyyy',
+          autoclose: true,
+          todayHighlight: true,
+          todayBtn: 'linked',
+        });
+
+        $('#simple-date4 .input-daterange').datepicker({
+          format: 'dd/mm/yyyy',
+          autoclose: true,
+          todayHighlight: true,
+          todayBtn: 'linked',
+        });
+
+        // TouchSpin
+
+        $('#touchSpin1').TouchSpin({
+          min: 0,
+          max: 100,
+          boostat: 5,
+          maxboostedstep: 10,
+          initval: 0
+        });
+
+        $('#touchSpin2').TouchSpin({
+          min: 0,
+          max: 100,
+          decimals: 2,
+          step: 0.1,
+          postfix: '%',
+          initval: 0,
+          boostat: 5,
+          maxboostedstep: 10
+        });
+
+        $('#touchSpin3').TouchSpin({
+          min: 0,
+          max: 100,
+          initval: 0,
+          boostat: 5,
+          maxboostedstep: 10,
+          verticalbuttons: true,
+        });
+
+        $('#clockPicker1').clockpicker({
+          donetext: 'Done'
+        });
+
+        $('#clockPicker2').clockpicker({
+          autoclose: true
+        });
+
+        let input = $('#clockPicker3').clockpicker({
+          autoclose: true,
+          'default': 'now',
+          placement: 'top',
+          align: 'left',
+        });
+
+        $('#check-minutes').click(function(e) {
+          e.stopPropagation();
+          input.clockpicker('show').clockpicker('toggleView', 'minutes');
+        });
+
       });
-
-      $('#simple-date2 .input-group.date').datepicker({
-        startView: 1,
-        format: 'dd/mm/yyyy',        
-        autoclose: true,     
-        todayHighlight: true,   
-        todayBtn: 'linked',
-      });
-
-      $('#simple-date3 .input-group.date').datepicker({
-        startView: 2,
-        format: 'dd/mm/yyyy',        
-        autoclose: true,     
-        todayHighlight: true,   
-        todayBtn: 'linked',
-      });
-
-      $('#simple-date4 .input-daterange').datepicker({        
-        format: 'dd/mm/yyyy',        
-        autoclose: true,     
-        todayHighlight: true,   
-        todayBtn: 'linked',
-      });    
-
-      // TouchSpin
-
-      $('#touchSpin1').TouchSpin({
-        min: 0,
-        max: 100,                
-        boostat: 5,
-        maxboostedstep: 10,        
-        initval: 0
-      });
-
-      $('#touchSpin2').TouchSpin({
-        min:0,
-        max: 100,
-        decimals: 2,
-        step: 0.1,
-        postfix: '%',
-        initval: 0,
-        boostat: 5,
-        maxboostedstep: 10
-      });
-
-      $('#touchSpin3').TouchSpin({
-        min: 0,
-        max: 100,
-        initval: 0,
-        boostat: 5,
-        maxboostedstep: 10,
-        verticalbuttons: true,
-      });
-
-      $('#clockPicker1').clockpicker({
-        donetext: 'Done'
-      });
-
-      $('#clockPicker2').clockpicker({
-        autoclose: true
-      });
-
-      let input = $('#clockPicker3').clockpicker({
-        autoclose: true,
-        'default': 'now',
-        placement: 'top',
-        align: 'left',
-      });
-
-      $('#check-minutes').click(function(e){        
-        e.stopPropagation();
-        input.clockpicker('show').clockpicker('toggleView', 'minutes');
-      });
-
-    });
-  </script>
+    </script>
 
 </body>
 

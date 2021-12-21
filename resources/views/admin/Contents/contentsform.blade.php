@@ -36,52 +36,24 @@
                         <th>ID</th>
                         <th>เนื้อหา</th>
                         <th>รูปภาพ</th>
-                        <th>รหัสผู้ใช้</th>
+                        <th>ผู้ใช้</th>
                         <th>แก้ไข</th>
                         <th>ลบ</th>
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach ($contents as $con)
                       <tr>
-                        <td><a href="#">RA0449</a></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><a href="#">B001</a></td>
-                        <td><a href="{{route('editcontents')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
+                        <th scope="row">{{$con->id_contents}}</th>
+                        <td>{{$con->text}}</td>
+                        <td>
+                        <img src="{{asset('/admin/img/'.$con->image)}}" width="100px" alt="">
+                        </td>
+                        <td>{{$con->id_users}}</td>
+                        <td><a href="{{url('/Contents/edit/'.$con->id_contents)}}" class="btn btn-sm btn-warning">Edit</a></td>
+                        <td><a href="{{url('/Contents/delete/'.$con->id_contents)}}" class="btn btn-sm btn-danger">Delete</a></td>
                       </tr>
-                      <tr>
-                        <td><a href="#">RA5324</a></td>
-                        <td><span class="">Shipping</span></td>
-                        <td><span class="badge badge-warning">Shipping</span></td>
-                        <td><a href="#">B001</a></td>
-                        <td><a href="{{route('editcontents')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA8568</a></td>
-                        <td><span class="r">Pending</span></td>
-                        <td><span class="badge badge-danger">Pending</span></td>
-                        <td><a href="#">B001</a></td>
-                        <td><a href="{{route('editcontents')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA1453</a></td>
-                        <td><span class="">Processing</span></td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td><a href="#">B001</a></td>
-                        <td><a href="{{route('editcontents')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA1998</a></td>
-                        <td><span class="">Delivered</span></td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><a href="#">B001</a></td>
-                        <td><a href="{{route('editcontents')}}" class="btn btn-sm btn-warning">แก้ไข</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
-                      </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>
